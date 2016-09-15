@@ -2,25 +2,31 @@
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1 col-med-10 col-med-offset-1">
       <div class="panel panel-default">
-        <form ng-submit="findLunch(input)">
+        <form ng-submit="findLunch(input)" name="searchForm">
           <div class="form-group">
             <label for="location">Location?</label>
-            <input ng-model="input.address" id="address" type="text" name="location" value="" placeholder="address here">
-            <div class="form-check">
-            <label for="currentLocation" class="form-check-label">
-              <input ng-model="input.geolocation" id="geolocation" name="currentLocation" type="checkbox" class="form-check-input">
-              Check to Use Current Location
-            </label>
+            <div class="input-group">
+              <input class="form-control" ng-model="input.address" id="address" type="btn" name="location" value="" placeholder="1234 S. Main St. Town State" ng-required="!input.geolocation">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" ng-click="input.geolocation = true" ng-required="!input.address">Use Current Location</button>
+                </span>
+            </div>
+            <p ng-Show="input.geolocation">
+              Using geolocation
+            </p>
           </div>
           <div class="form-group">
-            <label for="radius">How far are you willing to travel?</label>
-            <input ng-model="input.radius" id="radius" type="number" name="radius" value="" placeholder="enter a distance 1 to 50000 miles here">
+            <label for="radius">How far are you willing to travel?(distance in meters)</label>
+            <input ng-model="input.radius" id="radius" type="number" name="radius" value="" placeholder="in m" min="1" max="50000" required>
+            <span ng-show="form.size.$error.integer">The value is not a valid integer!</span>
+            <span ng-show="searchForm.size.$error.min || form.size.$error.max">
+              Please input a number from 1 to 50,000</span>
           </div>
           <div class="form-group">
             <label for="minPrice">Least you would like to spend?</label>
-            <input ng-model="input.minPrice" id="minPrice" type="number" name="minPrice" value="" placeholder="(optional)">
+            <input ng-model="input.minPrice" id="minPrice" type="number" name="minPrice" value="" placeholder="(optional)" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
             <label for="maxPrice">Most you would like to spend?</label>
-            <input ng-model="input.maxPrice" id="maxPrice" type="number" name="maxPrice" value="" placeholder="(optional)">
+            <input ng-model="input.maxPrice" id="maxPrice" type="number" name="maxPrice" value="" placeholder="(optional)" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
           </div>
           <div class="form-group">
             <label for="isOpen" class="form-check-label">
@@ -28,7 +34,7 @@
               Check for Restuarants Currently Open
             </label>
           </div>
-          <button type="submit" class="btn btn-primary btn-block">Find Some Lunch!</button>
+          <button type="submit" class="btn btn-primary btn-block" ng-disabled="searchForm.$invalid">Find Some Lunch!</button>
         </form>
       </div>
     </div>
