@@ -1,24 +1,27 @@
-
-  <div class="container">
+<div class="container">
     <div class="row">
-      <div class="col-xs-12">
-        <h1>Check out these lunch spots!</h1>
-        <h3 class='no-results' ng-Show="if(place.length == 0)">Sorry no results found, try a bigger radius</h3>
-        <a href="/" ng-click="reload()"><button type="button" name="button" class="btn btn-secondary">New Search</button></a>
-        <div ng-controller="resultsController">
-        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" events="map.events" options="map.options" clickable="false">
-            <ui-gmap-marker ng-repeat="m in markerArray" coords="m.coords" idkey="m.id" options="m.options" ></ui-gmap-marker>
-        </ui-gmap-google-map>
-      </div>
-      </div>
+        <div class="col-xs-12">
+            <h1>Check out these lunch spots!</h1>
+            <h3 class='no-results' ng-Show="if(place.length == 0)">Sorry no results found, try a bigger radius</h3>
+            <a href="/" ng-click="reload()">
+                <button type="button" name="button" class="btn btn-secondary">New Search</button>
+            </a>
+            <div ng-controller="resultsController">
+                <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" events="map.events" options="map.options" clickable="false">
+                    <ui-gmap-marker ng-repeat="m in markerArray" coords="m.coords" idkey="m.id" options="m.options"></ui-gmap-marker>
+                </ui-gmap-google-map>
+            </div>
+        </div>
         <div ng-repeat="place in places" class=" col-xs-12 lunchList">
-          <div class="container background">
-            <h3>{{place.name}}</h3>
-            <p>Rating: {{place.rating}}</p>
-            <p>Vicinity: {{place.vicinity}}</p>
-          </div>
+            <div class="container background">
+                <h3>{{place.name}}</h3>
+                <p>Rating:
+                    {{place.rating}}</p>
+                <p>Vicinity:
+                    {{place.vicinity}}</p>
+            </div>
         </div>
     </div>
-  </div>
+</div>
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuEZexMewzZ4rne2DYkCPS8Q-hJhhu_pY&callback=initMap"
     async defer></script> -->

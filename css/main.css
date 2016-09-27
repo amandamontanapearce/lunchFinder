@@ -1,28 +1,30 @@
 /*------General-----*/
+
 html, body {
-   height: 100%;
-   margin: 0;
-   padding: 0;
-     }
-
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 .lunchList {
-  display: flex;
-  flex-direction: column;
-  flex-wrap:wrap;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
-
 .btn-secondary {
-  margin: 10px;
-}
-/*------form-----*/
-.form-group {
-  margin: 1rem;
+    margin: 10px;
 }
 
+/*------form-----*/
+
+.form-group {
+    margin: 1rem;
+}
 
 /*------map-----*/
-#map {
-  height: 100%;
-}
 
-.angular-google-map-container { height: 400px; }
+#map {
+    height: 100%;
+}
+.angular-google-map-container {
+    height: 400px;
+}
