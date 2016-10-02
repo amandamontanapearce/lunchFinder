@@ -7,7 +7,7 @@
     }
 
     function addRadius(radius) {
-        let radiusString = '&radius=' + radius;
+        let radiusString = '&radius=' + (radius * 100);
         return radiusString;
     }
 

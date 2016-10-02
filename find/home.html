@@ -1,12 +1,12 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-10 col-xs-offset-1 col-med-10 col-med-offset-1">
+        <div class="col-xs-10 col-xs-offset-1 col-med-6 col-med-offset-4">
             <div class="panel panel-default">
                 <form ng-submit="findLunch(input)" name="searchForm">
                     <div class="form-group">
                         <label for="location">Location?</label>
                         <div class="input-group">
-                            <input class="form-control" ng-model="input.address" id="address" type="btn" name="location" value="" placeholder="1234 S. Main St. Town State" ng-required="!input.geolocation">
+                            <input class="form-control" ng-model="input.address" id="address" type="btn" name="location" value="" placeholder="1234 S. Main St. Town State" ng-required="!input.geolocation" ng-hide="input.geolocation">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button" ng-click="input.geolocation = true" ng-required="!input.address">Use Current Location</button>
                             </span>
@@ -16,8 +16,8 @@
                         </p>
                     </div>
                     <div class="form-group">
-                        <label for="radius">How far are you willing to travel?(distance in meters)</label>
-                        <input ng-model="input.radius" id="radius" type="number" name="radius" value="" placeholder="in m" min="1" max="50000" required>
+                        <label for="radius">How far are you willing to travel?(distance in km)</label>
+                        <input ng-model="input.radius" id="radius" type="number" name="radius" value="" placeholder="km" min="1" max="500" required>
                         <span ng-show="form.size.$error.integer">The value is not a valid integer!</span>
                         <span ng-show="searchForm.size.$error.min || form.size.$error.max">
                             Please input a number from 1 to 50,000</span>

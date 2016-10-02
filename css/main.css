@@ -5,10 +5,8 @@ html, body {
     margin: 0;
     padding: 0;
 }
-.lunchList {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+.resultsList {
+  height: 160px;
 }
 .btn-secondary {
     margin: 10px;

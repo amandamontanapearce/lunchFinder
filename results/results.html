@@ -12,14 +12,12 @@
                 </ui-gmap-google-map>
             </div>
         </div>
-        <div ng-repeat="place in places" class=" col-xs-12 lunchList">
-            <div class="container background">
+        <div ng-repeat="place in places" class="col-xs-12 col-sm-6 col-md-4 resultsList">
                 <h3>{{place.name}}</h3>
                 <p>Rating:
                     {{place.rating}}</p>
                 <p>Vicinity:
                     {{place.vicinity}}</p>
-            </div>
         </div>
     </div>
 </div>
